@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckCountry
+class AuthCheck
 {
     /**
      * Handle an incoming request.
@@ -16,19 +16,11 @@ class CheckCountry
      */
     public function handle(Request $request, Closure $next)
     {
-        // in this part we define our logic to filter the request.
-        // $countries = [
 
-        //     'us' ,
-        //     'uk' ,
-        //     'ar',
-        //     'in'
-        // ] ;
-
-        // if(!in_array($request->country,  $countries)&& !request()->is('unavailable')){
-
-        //      return redirect()->route('unavailable');
-        // }
+       if($request->has('auth') && $request->auth == 1){
         return $next($request);
+       }
+       return redirect()->route('unavailable');
+
     }
 }

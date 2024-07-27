@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// dashpord & profile route
+
+
 
 // the entery point of the Application
 Route::get('/', [LoginController::class , 'index']);
@@ -58,3 +61,26 @@ Route::get("/post/trashed" , [PostController::class , 'trashed'])->name("posts.t
 Route::get("post/restore/{post} ", [PostController::class , "restore"])->name("posts.restore") ;
 Route::delete("post/force_delete/{post}" , [PostController::class , 'force_destroy'])->name("posts.force_destroy") ;
 
+// define unavalible route
+
+Route::get("/unavailable" , function(){
+    return view('unavailable') ;
+})->name('unavailable') ;
+
+//  create a Route Group this mean that some middleware apply on it denote how we can do it
+
+Route::group(["middleware" => "AuthCheck"] ,function(){
+
+    Route::get('/dashborad' , function(){
+
+
+        return view('dashboard') ;
+    });
+
+    Route::get('/profile' , function(){
+
+        return view('/profile');
+    });
+
+
+}) ;
