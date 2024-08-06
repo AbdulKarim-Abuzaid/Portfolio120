@@ -1,10 +1,26 @@
+
 @extends('layout.Master')
 
 @section('content')
 
-<main role="main" class="container">
-    <h1 class="mt-5 text-danger">Contact</h1>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum pariatur ratione quaerat vero a, ullam reiciendis earum distinctio nihil exercitationem quidem neque odit aliquid quasi esse, repudiandae, adipisci non placeat.
-  </main>
+<div class="container">
+
+    <div class="row">
+
+        <x-button>
+
+            <x-slot name="title">
+                <h1>Page Title</h1>
+            </x-slot>
+            <x-slot name="description">
+                <h1>Description</h1>
+            </x-slot>
+
+        </x-button>
+
+
+   </div>
+
+</div>
 
 @endsection

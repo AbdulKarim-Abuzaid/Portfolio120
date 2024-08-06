@@ -1,11 +1,12 @@
 <?php
 
-namespace App\View\Components\Form;
+namespace App\View\Components\Post;
 
 use Illuminate\View\Component;
 
-class Button extends Component
+class Index extends Component
 {
+    public $post ;
     /**
      * Create a new component instance.
      *
@@ -13,7 +14,7 @@ class Button extends Component
      */
     public function __construct()
     {
-        //
+        // $this->post = $post ;
     }
 
     /**
@@ -23,6 +24,6 @@ class Button extends Component
      */
     public function render()
     {
-        return view('components.form.submit');
+        return view('components.post.index');
     }
 }
